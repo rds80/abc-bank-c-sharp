@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +8,6 @@ namespace AbcBank
 {
     public class Account
     {
-
-        public const int CHECKING = 0;
         public const int SAVINGS = 1;
         public const int MAXI_SAVINGS = 2;
 
@@ -78,8 +76,12 @@ namespace AbcBank
         private double checkIfTransactionsExist(bool checkAll)
         {
             double amount = 0.0;
-            foreach (Transaction t in transactions)
-                amount += t.amount;
+
+            if (checkAll)
+            { 
+                foreach (Transaction t in transactions)
+                    amount += t.amount;
+            }
             return amount;
         }
 
